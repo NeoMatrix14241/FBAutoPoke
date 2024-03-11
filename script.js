@@ -30,7 +30,7 @@ function copyCode() {
 		.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			var encoded = encodeURI(paragraphElement);
+			var encoded = encodeURIComponent(paragraphElement);
 			encoded.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
