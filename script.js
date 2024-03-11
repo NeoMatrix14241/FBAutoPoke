@@ -26,24 +26,21 @@ function jsonColumnToParagraph(jsonData, columnToDisplay) {
 	return htmlContent;
 }
 	
-const escapeHTML = str =>
-	str.replace(
-		/[&<>'"]/g,
-		tag =>
-	({
-		'&': '&amp;',
-		'<': '&lt;',
-		'>': '&gt;',
-		"'": '&#39;',
-		'"': '&quot;'
-	}[tag] || tag)
-);
+function escapehtml(unsafe)
+{
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
 	
 fetch('lib.json')
 	.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			var escaped = escapeHTML(paragraphElement);
+			var escaped = escapehtml(paragraphElement);
 			escaped.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
