@@ -30,7 +30,7 @@ function jsonColumnToParagraph(jsonData, columnToDisplay) {
 	.replace(/"/g, "&quot;")
 	.replace(/'/g, "&#039;");
 }
-	
+
 fetch('lib.json')
 	.then(response => response.json())
 		.then(data => {
