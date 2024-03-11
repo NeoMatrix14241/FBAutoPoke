@@ -22,7 +22,7 @@ function copyCode() {
 	var columnToDisplay = "content";
 
 	function jsonColumnToParagraph(jsonData, columnToDisplay) {
-		var htmlContent = "<strong>" + columnToDisplay + ":</strong> " + jsonData[columnToDisplay];
+		var htmlContent = jsonData[columnToDisplay];
 		return htmlContent;
 	}
 	
