@@ -19,16 +19,17 @@ function copyCode() {
 	}, 3000);
 }
 
-var display = "content";
-function jsonColumnToParagraph(data, display) {
-	var htmlContent = "<strong>" + display + ":</strong> " + data[display];
-	return htmlContent;
-}
+	var columnToDisplay = "content";
 
-fetch('lib.json')
-	.then(response => response.json())
-	.then(data => {
-		var paragraphElement = document.getElementById("scriptcontent");
-		paragraphElement.innerHTML = jsonColumnToParagraph(data, display);
-		console.log("working");
-	})
+	function jsonColumnToParagraph(jsonData, columnToDisplay) {
+		var htmlContent = "<strong>" + columnToDisplay + ":</strong> " + jsonData[columnToDisplay];
+		return htmlContent;
+	}
+	
+	fetch('lib.json')
+		.then(response => response.json())
+		.then(data => {
+			var paragraphElement = document.getElementById("scriptcontent");
+			paragraphElement.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
+		})
+		.catch(error => console.error('Error fetching JSON:', error));
