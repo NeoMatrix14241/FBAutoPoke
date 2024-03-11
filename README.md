@@ -1,10 +1,10 @@
 How to Use:
 
-1.) Go to Facebook Pokes
-2.) Press "F12"
-3.) Go to "console"
-4.) Copy then paste the code below
-5.) Hit "Enter"
+- Go to Facebook Pokes
+- Press "F12"
+- Go to "console"
+- Copy then paste the code below
+- Hit "Enter"
 
 
 Notes:
