@@ -26,11 +26,16 @@ function jsonColumnToParagraph(jsonData, columnToDisplay) {
 	return htmlContent;
 }
 
+function escapeHtml(str) {
+	var div = document.createElement('div');
+	div.appendChild(document.createTextNode(str));
+	return div.innerHTML;
+}
+
 fetch('lib.json')
 	.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			var encoded = encodeURIComponent(paragraphElement);
-			encoded.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
+			paragraphElement.innerHTML = escapeHtml(jsonColumnToParagraph(data, columnToDisplay));
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
