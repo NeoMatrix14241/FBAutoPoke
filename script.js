@@ -24,17 +24,13 @@ var columnToDisplay = "content";
 function jsonColumnToParagraph(jsonData, columnToDisplay) {
 	var htmlContent = jsonData[columnToDisplay];
 	return htmlContent;
-	.replace(/&/g, "&amp;")
-	.replace(/</g, "&lt;")
-	.replace(/>/g, "&gt;")
-	.replace(/"/g, "&quot;")
-	.replace(/'/g, "&#039;");
 }
 
 fetch('lib.json')
 	.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			paragraphElement.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
+			var encoded = encodeURIComponent(paragraphElement);
+			encoded.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
