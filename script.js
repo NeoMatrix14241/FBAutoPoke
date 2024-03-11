@@ -1,6 +1,6 @@
 function copyCode() {
 	const codeBox = document.getElementById('codeBox');
-	const codeToCopy = codeBox.querySelector('p');
+	const codeToCopy = codeBox.querySelector('code');
 
 	const textarea = document.createElement('textarea');
 	textarea.value = codeToCopy.innerText;
@@ -30,6 +30,7 @@ function copyCode() {
 		.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			paragraphElement.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
+			var encoded = encodeURI(paragraphElement);
+			encoded.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
