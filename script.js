@@ -19,18 +19,30 @@ function copyCode() {
 	}, 3000);
 }
 
-	var columnToDisplay = "content";
+var columnToDisplay = "content";
 
-	function jsonColumnToParagraph(jsonData, columnToDisplay) {
-		var htmlContent = jsonData[columnToDisplay];
-		return htmlContent;
-	}
+function jsonColumnToParagraph(jsonData, columnToDisplay) {
+	var htmlContent = jsonData[columnToDisplay];
+	return htmlContent;
+}
 	
-	fetch('lib.json')
-		.then(response => response.json())
+const escapeHTML = str =>
+	str.replace(
+		/[&<>'"]/g,
+		tag =>
+	({
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		"'": '&#39;',
+		'"': '&quot;'
+	}[tag] || tag)
+);
+	
+fetch('lib.json')
+	.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			var encoded = encodeURIComponent(paragraphElement);
-			encoded.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
+			escapeHTML(paragraphElement).innerHTML = jsonColumnToParagraph(data, columnToDisplay);
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
