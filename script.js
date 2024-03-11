@@ -19,12 +19,17 @@ function copyCode() {
 	}, 3000);
 }
 
-fetch('auto-poke-lib.js')
-	.then(response => response.text())
-	.then(text => {
-		document.getElementById('myParagraph').innerText = text;
-			const scriptElement = document.createElement('script');
-			scriptElement.text = text;
-			document.head.appendChild(scriptElement);
-		})
-	.catch(error => console.error('Error fetching file:', error));
+var display = "content"
+function jsonColumnToParagraph(jsonData, display) {
+	var htmlContent = "<strong>" + display + ":</strong> " + jsonData[display];
+	return htmlContent;
+}
+
+fetch('lib.json')
+	.then(response => response.json())
+	.then(data => {
+		var paragraphElement = document.getElementById("myParagraph");
+		paragraphElement.innerHTML = jsonColumnToParagraph(data, display);
+		console.log("working");
+	})
+	.catch(error => console.error('Error fetching JSON:', error));
