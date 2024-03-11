@@ -43,6 +43,7 @@ fetch('lib.json')
 	.then(response => response.json())
 		.then(data => {
 			var paragraphElement = document.getElementById("scriptcontent");
-			escapeHTML(paragraphElement).innerHTML = jsonColumnToParagraph(data, columnToDisplay);
+			var escaped = escapeHTML(paragraphElement);
+			escaped.innerHTML = jsonColumnToParagraph(data, columnToDisplay);
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
