@@ -19,7 +19,7 @@ function copyCode() {
 	}, 3000);
 }
 
-var display = "content"
+var display = "content";
 function jsonColumnToParagraph(jsonData, display) {
 	var htmlContent = "<strong>" + display + ":</strong> " + jsonData[display];
 	return htmlContent;
