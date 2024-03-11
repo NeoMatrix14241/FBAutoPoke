@@ -28,7 +28,7 @@ function jsonColumnToParagraph(jsonData, display) {
 fetch('lib.json')
 	.then(response => response.json())
 	.then(data => {
-		var paragraphElement = document.getElementById("content");
+		var paragraphElement = document.getElementById("scriptcontent");
 		paragraphElement.innerHTML = jsonColumnToParagraph(data, display);
 		console.log("working");
 	})
