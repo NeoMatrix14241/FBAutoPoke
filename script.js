@@ -32,4 +32,3 @@ fetch('lib.json')
 		paragraphElement.innerHTML = jsonColumnToParagraph(data, display);
 		console.log("working");
 	})
-	.catch(error => console.error('Error fetching JSON:', error));
