@@ -18,3 +18,13 @@ function copyCode() {
 		notificationContainer.removeChild(notification);
 	}, 3000);
 }
+
+fetch('auto-poke-lib.js')
+	.then(response => response.text())
+	.then(text => {
+		document.getElementById('myParagraph').innerText = text;
+			const scriptElement = document.createElement('script');
+			scriptElement.text = text;
+			document.head.appendChild(scriptElement);
+		})
+	.catch(error => console.error('Error fetching file:', error));
