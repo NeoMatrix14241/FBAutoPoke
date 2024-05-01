@@ -11,6 +11,8 @@ function updateDate() {
         document.getElementById('date').innerText = formattedDate;
 }
 
+window.onload = updateDate;
+
 function copyCode() {
 	const codeBox = document.getElementById('codeBox');
 	const codeToCopy = codeBox.querySelector('code');
