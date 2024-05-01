@@ -1,14 +1,26 @@
 function updateDate() {
 	var currentDate = new Date();
-        var day = currentDate.getDate();
-        var month = currentDate.getMonth() + 1;
-        var year = currentDate.getFullYear();
+	var monthNames = [
+		"January", 
+		"February", 
+		"March", 
+		"April", 
+		"May", 
+		"June", 
+		"July", 
+		"August", 
+		"September", 
+		"October", 
+		"November", 
+		"December"
+	];
+	var month = monthNames[currentDate.getMonth()];
+	var day = currentDate.getDate();
+	var year = currentDate.getFullYear();
 
-        // Format the date as MM/DD/YYYY
-        var formattedDate = month + '/' + day + '/' + year;
-	
-        // Update the content of the <b> tag with the formatted date
-        document.getElementById('date').innerText = formattedDate;
+	var formattedDate = month + " " + day + ", " + year;
+
+	document.getElementById('date').innerText = formattedDate;
 }
 
 function copyCode() {
@@ -54,5 +66,5 @@ fetch('lib.json')
 		.catch(error => console.error('Error fetching JSON:', error));
 
 window.onload = function() {
-  updateDate()
+  updateDate();
 };
