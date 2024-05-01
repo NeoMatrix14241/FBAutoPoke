@@ -52,3 +52,5 @@ fetch('lib.json')
 			paragraphElement.innerHTML = escapeHtml(jsonColumnToParagraph(data, columnToDisplay));
 		})
 		.catch(error => console.error('Error fetching JSON:', error));
+
+document.addEventListener('DOMContentLoaded', updateDate);
