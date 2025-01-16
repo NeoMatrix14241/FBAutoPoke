@@ -13,4 +13,4 @@ Notes:
 - Do not minimize the browser
 - Disable any power saving mode in your browser especially sleeping tabs (edge)
 
-Link: https://neomatrix14241.github.io/fbautopoke
+Link: [https://neomatrix14241.github.io/fbautopoke](https://neomatrix14241.github.io/FBAutoPoke/)
